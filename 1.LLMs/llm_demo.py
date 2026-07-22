@@ -4,9 +4,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 chatmodel = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    temperature=0.7
+    model="gemini-2.5-flash"
 )
 
-response = chatmodel.invoke("What are you?")
-print(response.content)
+while True:
+    question=input("Enter your query : ")
+    response = chatmodel.invoke(question)
+    print("AI : ",response.content)
